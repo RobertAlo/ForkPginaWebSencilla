@@ -1,149 +1,199 @@
-*{
-    padding: 0;
+/* Reset básico */
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-body{
-    background-color:black;
-    background-image:
-    radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
-    radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
-    radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
-    radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
-    background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
-    background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+
+/* BODY: fondo en tonos pastel azules con un degradado suave */
+body {
     font-family: 'Manjari', sans-serif;
+    background: linear-gradient(to bottom right, #eaf6ff, #f4f9fc 60%, #ffffff);
+    /* Ajusta el degradado a tu gusto */
 }
 
-.title{
-    padding: 20px 0;
-    text-align: center;
-    font-size: 2em;
-    color: wheat;
-}
-
-.container{
-    background-color: rgb(253, 214, 196);
+/* Contenedor principal con display grid */
+.container {
     width: 90%;
     max-width: 1000px;
     margin: 1.6em auto;
     display: grid;
+    /* Grid principal: 5 columnas */
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 10px;
 }
 
+/* Áreas y estilos generales */
 .container > .header,
 .container > .content,
 .container > .sidebar,
 .container > .footer,
-.container > div{
-    background-color: rgb(255, 228, 198);
+.container > div {
     padding: 20px;
-    
 }
 
-.container .header,
-.container .footer{
-    grid-column: 1/6;
-    background-color: #d35400;
-    color: #fff;
+/* Header y footer ocupan 5 columnas */
+.header, .footer {
+    grid-column: 1 / 6;
 }
 
-.container .header{
-    background-color: #d35400;
+/* HEADER: degradado pastel azulado */
+.header {
+    background: linear-gradient(to right, #aeddfc, #cae7fd);
+    color: #3f3f3f;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    position: relative;
     position: sticky;
     top: 0;
+    z-index: 10; /* Para que quede por encima si hay scroll */
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15); /* Sombra un poco más fuerte */
 }
 
-.container .footer{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
-a{
-    background-color: #d86619;
-    padding: 10px 30px;
+.title {
     text-align: center;
-    color: white;
+    font-size: 2em;
+    color: #3b506b;
+    margin: auto 0;
+}
+
+/* Navegación: poner elementos en línea */
+.navigation ul {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    margin: auto 0;
+    padding: 0;
+}
+
+.navigation li {
+    /* Espacio adicional, si se quiere, se pone aquí */
+}
+
+/* Estilos de los enlaces del menú */
+.navigation a {
+    background-color: #87c1f9;
+    padding: 10px 30px;
+    color: #fff;
     text-decoration: none;
     font-size: 15px;
-    border-radius: 5px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
 }
-a:hover{
-    background-color:#dd7d3c;
+.navigation a:hover {
+    background-color: #7bb2eb;
     cursor: pointer;
 }
-a:active{
-    transform: scale(.8);
+.navigation a:active {
+    transform: scale(.9);
 }
 
-.container .content{
+/* ZONA DE CONTENIDO PRINCIPAL */
+.content {
     grid-column: span 3;
 }
 
-.content .article{
-    background-color: #f09341;
+/* Artículos con color pastel azul claro */
+.article {
+    background-color: #d9edff;
     padding: 20px;
     margin-top: 5px;
-    color: whitesmoke;
+    color: #4b4b4b;
+    border-radius: 8px;
+    /* Sombra más notoria */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
 }
 
 .article h2,
-.article p{
+.article p {
     padding: 10px;
-    
 }
 
-.container .sidebar{
+/* SIDEBAR: degradado pastel azulado */
+.sidebar {
     grid-column: span 2;
-    background-image: linear-gradient(rgb(231, 188, 44), rgb(255, 102, 0));
-    color: #fff;
+    background: linear-gradient(#e7f2ff, #cde2ff);
+    color: #4b4b4b;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-radius: 8px;
+    /* Sombra más notoria */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
 }
 
-.container .sidebar img{
+.sidebar img {
     width: 100%;
+    border-radius: 4px;
     margin-top: 5px;
 }
 
-.container .related-post{
-    background-color: #eba11a;
-    color: #fff;
-    height: 150px;
+/* POSTS RELACIONADOS */
+.related-posts {
+    grid-column: 1 / 6;
+}
+.related-posts h3 {
+    text-align: center;
+    margin-bottom: 1em;
+    color: #3b506b;
+}
+
+/* Cajas de posts con color pastel */
+.related-post {
+    background-color: #ddeffc;
+    color: #4b4b4b;
+    height: 120px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 10px;
-    transition: all 0.5s ease;
+    margin: 0 10px 10px;
+    border-radius: 6px;
+    /* Sombra más notoria */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
 }
-
-.container .related-post:hover{
+.related-post:hover {
     cursor: pointer;
-background-color: rgb(243, 127, 50);
-color: white;
+    background-color: #c4def7;
+    transform: translateY(-3px);
 }
 
+/* FOOTER */
+.footer {
+    background: linear-gradient(to right, #cde4ff, #e8f4ff);
+    color: #4b4b4b;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-radius: 8px;
+    box-shadow: 0 -3px 12px rgba(0, 0, 0, 0.12);
+}
+.footer h4 {
+    margin-bottom: 0.5em;
+}
 
-@media screen and (max-width: 780px){
-    .header{
+/* RESPONSIVE: dispositivos <= 780px */
+@media screen and (max-width: 780px) {
+    .header {
+        flex-direction: column;
         text-align: center;
     }
-    .container .content{
-        grid-column: 1/-1;
+    .navigation ul {
+        flex-direction: column;
+        gap: 5px;
+        margin: 10px 0;
     }
 
-    .container .sidebar{
-        grid-column: 1/-1;
+    /* Cada sección ocupa el ancho completo */
+    .content,
+    .sidebar,
+    .related-posts {
+        grid-column: 1 / -1;
     }
 
-    .container .related-post{
-        grid-column: 1/-1;
+    .related-post {
+        margin: 10px auto;
+        width: 80%;
     }
 }
